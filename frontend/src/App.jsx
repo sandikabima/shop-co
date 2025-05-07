@@ -2,7 +2,7 @@
 
 function App() {
   return (
-    <h2>Camaik udah datang</h2>
+    <div>coba lagi</div>
   )
 }
 
