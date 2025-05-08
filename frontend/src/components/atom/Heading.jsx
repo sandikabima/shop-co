@@ -1,7 +1,7 @@
 const Heading = ({ level = 1, children, className = "" }) => {
     const Tag = `h${level}`;
     return (
-        <Tag className={`font-bold text-[#000] ${headingSize(level)}`}>{children}</Tag>
+        <Tag className={`font-bold text-[#000] ${headingSize(level)} ${className}`}>{children}</Tag>
     )
 }
 
