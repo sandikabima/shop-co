@@ -1,4 +1,5 @@
 import PromoBar from "@/components/atom/PromoBar"
+import Footer from "@/components/organisms/Footer"
 import Navbar from "@/components/organisms/Navbar"
 import { Outlet } from "react-router-dom"
 
@@ -11,6 +12,7 @@ const CustomerLayout = () => {
             <main>
                 <Outlet />
             </main>
+            <Footer />
         </>
     )
 }
