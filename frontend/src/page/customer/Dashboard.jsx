@@ -1,6 +1,8 @@
 const CustomerDashboard = () => {
     return (
-        <div>CustomerDashboard</div>
+        <>
+        
+        </>
     )
 }
 
