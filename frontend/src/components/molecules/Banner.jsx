@@ -6,7 +6,7 @@ import bannerImage from "@/assets/img-banner.png";
 
 const Banner = () => {
     return (
-        <section className="w-full h-[calc(100vh-98px)] md:h-[calc(100vh-134px)] bg-[#F2F0F1] text-white flex flex-col md:flex-row items-center justify-between md:px-20">
+        <section className="w-full md:h-[calc(100vh-134px)] bg-[#F2F0F1] text-white flex flex-col md:flex-row items-center justify-between md:px-20">
             <div className="flex-1 flex flex-col space-y-5 px-5 md:px-0 mt-10 md:mt-0 overflow-hidden">
                 <Heading className="md:text-left md:w-[400px] w-[300px]">
                     FIND CLOTHES THAT MATCHES YOUR STYLE
@@ -34,7 +34,7 @@ const Banner = () => {
                     </div>
                 </div>
             </div>
-            <div className="flex-1 w-full h-full relative overflow-hidden">
+            <div className="flex-1 w-full h-full relative overflow-hidden md:mt-0">
                 <img
                     src={vectorImage}
                     alt="Vector"
