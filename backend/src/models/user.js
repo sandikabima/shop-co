@@ -24,3 +24,5 @@ const user = {
         type: Sequelize.TEXT
     }
 }
+
+module.exports = user
