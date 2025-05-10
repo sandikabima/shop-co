@@ -6,6 +6,8 @@ const cors = require("cors")
 const bodyParser = require("body-parser")
 const cookieParser = require("cookie-parser");
 
+const sequelize = require("./config/conn");
+
 app.use(cookieParser())
 app.use(
     cors({
