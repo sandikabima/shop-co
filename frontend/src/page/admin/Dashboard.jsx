@@ -1,6 +1,9 @@
+import AdminSidebar from "@/components/organisms/Sidebar"
+
+
 const AdminDashboard = () => {
     return (
-        <div>AdminDashboard</div>
+        <div>coba</div>
     )
 }
 

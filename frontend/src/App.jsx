@@ -9,14 +9,19 @@ import NotFound from "./page/not-found";
 import UnauthPage from "./page/unauth-page";
 import AdminDashboard from "./page/admin/Dashboard";
 import CustomerDashboard from "./page/customer/Dashboard";
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react";
+import { refreshToken } from "./store/auth/authThunk";
 
 
 function App() {
 
-  const isAuthenticated = true
-  const user = {
-    role: 'customer'
-  }
+  const { user, isAuthenticated } = useSelector((state) => state.auth)
+  const dispatch = useDispatch()
+
+  useEffect(() => {
+    dispatch(refreshToken())
+  },[dispatch])
 
   return (
     <Routes>

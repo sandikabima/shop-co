@@ -5,9 +5,15 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import { BrowserRouter } from "react-router-dom";
+import { Toaster } from "./components/ui/sonner";
+import { Provider } from "react-redux";
+import store from "./store/store";
 
 createRoot(document.getElementById("root")).render(
   <BrowserRouter>
-    <App />
+    <Provider store={store}>
+      <App />
+      <Toaster />
+    </Provider>
   </BrowserRouter>
 );
