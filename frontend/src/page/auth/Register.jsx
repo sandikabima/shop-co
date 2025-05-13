@@ -1,6 +1,11 @@
 import CommonForm from "@/components/organisms/CommonForm"
 import { registerFormControls, schemaRegister } from "@/config";
+import { handleError } from "@/shared/lib/handle-error";
+import { handleToast } from "@/shared/lib/handle-toast";
+import { register } from "@/store/auth/authThunk";
 import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 const initialState = {
     username: "",
@@ -11,6 +16,8 @@ const initialState = {
 const AuthRegister = () => {
     const [formData, setFormData] = useState(initialState)
     const [errors, setErrors] = useState({})
+    const distpatch = useDispatch()
+    const navigate = useNavigate()
 
     const validateForm = () => {
         const { error } = schemaRegister.validate(formData, { abortEarly: false })
@@ -29,8 +36,14 @@ const AuthRegister = () => {
     const onSubmit = (e) => {
         e.preventDefault()
         if (validateForm()) {
-            console.log(formData)
+            distpatch(register(formData))
+                .unwrap()
+                .then((data) => handleToast.success(data.message || "Registrasi Berhasil"))
+                .catch((error) => handleToast.error(handleError(error)))
+
+            navigate("/login")
         }
+
     }
 
     return (

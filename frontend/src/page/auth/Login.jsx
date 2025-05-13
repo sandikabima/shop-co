@@ -1,6 +1,10 @@
 import CommonForm from "@/components/organisms/CommonForm"
 import { loginFormControls, schemaLogin } from "@/config"
+import { handleError } from "@/shared/lib/handle-error";
+import { handleToast } from "@/shared/lib/handle-toast";
+import { login } from "@/store/auth/authThunk";
 import { useState } from "react";
+import { useDispatch } from "react-redux";
 
 const initialState = {
     email: "",
@@ -11,6 +15,7 @@ const AuthLogin = () => {
 
     const [formData, setFormData] = useState(initialState)
     const [errors, setErrors] = useState({})
+    const dispatch = useDispatch()
 
     const validateForm = () => {
         const { error } = schemaLogin.validate(formData, { abortEarly: false });
@@ -29,7 +34,10 @@ const AuthLogin = () => {
     const onSubmit = (e) => {
         e.preventDefault()
         if (validateForm()) {
-            console.log(formData)
+           dispatch(login(formData))
+           .unwrap()
+           .then((data) => handleToast.success(data.message || "Login Berhsail"))
+           .catch((error) => handleToast.error(handleError(error)))
         }
     }
 
